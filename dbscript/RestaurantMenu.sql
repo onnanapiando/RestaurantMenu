@@ -8,7 +8,7 @@ create table RestaurantMenu (
 --create language plpgsql;
 -- controller
 create or replace 
-    function setRestaurantMenu(p_RestaurantMenu_id int, p_ordername text,p_size_ text,price text) 
+    function setRestaurantMenu(p_RestaurantMenu_id int, p_ordername text,p_size_ text,p_price text) 
     returns text as
 $$
   declare
@@ -41,7 +41,7 @@ create or replace function
 returns setof record as
 $$ 
 
-     select ordername, size_  from RestaurantMenu
+     select ordername, size_, price  from RestaurantMenu
      where RestaurantMenu_id = $1;
      
 $$
